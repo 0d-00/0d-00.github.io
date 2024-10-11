@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://0d-00.github.io/images/image-20240929131531914.png">
 <meta property="og:image" content="https://0d-00.github.io/images/image-20240929134343436.png">
 <meta property="article:published_time" content="2024-09-30T16:41:54.000Z">
-<meta property="article:modified_time" content="2024-10-03T02:49:42.904Z">
+<meta property="article:modified_time" content="2024-10-11T06:21:58.618Z">
 <meta property="article:author" content="0d-00">
 <meta property="article:tag" content="combinatorics">
 <meta name="twitter:card" content="summary_large_image">
@@ -245,7 +245,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          2.2k 字
         
       </span>
     
@@ -256,7 +256,7 @@
         
         
         
-          20 分钟
+          19 分钟
         
       </span>
     
@@ -581,17 +581,13 @@ alt="image-20240924154940086" />
 <figcaption aria-hidden="true">image-20240924154940086</figcaption>
 </figure>
 </blockquote>
-<p> void solve() {  int n, m, k;  cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;
- for (int i = 1; i &lt;= m; ++i) {    int x, y;    cin &gt;&gt; x
-&gt;&gt; y;    g.push_back({x, y}); }  auto id = <a
-href="int%20i,%20int%20x">&amp;</a> { return ((i - x) % n + n) % n == 0
-? n : ((i - x) % n + n) % n; };  f<a href="#section">1</a> = 1, ff<a
-href="#section">1</a> = 1;  for (int i = 1; i &lt;= k; ++i) {  
- vector<int> v;    for (const auto&amp; [x, y] : g) {      int p = id(y
-- 1 == 0 ? n : y - 1, i - 1);      f[p] += ff[id(x, i - 1)];      f[p]
-%= mod;      v.push_back(p);   }    for (const auto x : v) ff[x] = f[x];
-}  ll ans = 0;  for (int i = 1; i &lt;= n; ++i) ans = (ans + f[i]) %
-mod;  cout &lt;&lt; ans &lt;&lt; "";}cpp</p>
+<p>为了计算<span
+class="math inline">\(a_n\)</span>我们不妨将其分成以<span
+class="math inline">\(22\)</span>开头的和其他，若以<span
+class="math inline">\(22\)</span>开头显然有<span
+class="math inline">\(a_{n-2}\)</span> 种，否则我们再将<span
+class="math inline">\(a_{n-1}\)</span>分成三类，开头为<span
+class="math inline">\(0,1,2\)</span></p>
 <p>设其分别有<span class="math inline">\(x,y,z\)</span>种。</p>
 <p>那么有 <span class="math display">\[
 a_n=(y+z)+(x+z)+(x+y)+a_{n-2}=2a_{n-1}+a_{n-2}
