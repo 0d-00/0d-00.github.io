@@ -46,7 +46,7 @@
 <meta property="og:image" content="https://0d-00.github.io/images/image-20240907105441524.png">
 <meta property="og:image" content="https://0d-00.github.io/images/image-20240907105802249.png">
 <meta property="article:published_time" content="2024-11-22T15:10:29.000Z">
-<meta property="article:modified_time" content="2024-11-23T07:17:30.395Z">
+<meta property="article:modified_time" content="2024-11-23T13:06:58.973Z">
 <meta property="article:author" content="0d-00">
 <meta property="article:tag" content="Combinatorics">
 <meta name="twitter:card" content="summary_large_image">
@@ -247,7 +247,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          3.5k 字
         
       </span>
     
@@ -258,7 +258,7 @@
         
         
         
-          28 分钟
+          30 分钟
         
       </span>
     
@@ -727,7 +727,7 @@ class="math inline">\((\mathcal{P}(X_n),\subseteq)\)</span></h4>
 G(n)=\sum_{k|n} F(k)
 \]</span></p>
 <p><span class="math display">\[
-F(k)=\sum_{k|n}\mu(k,n)G(k)=\sum_{k|n}\mu(1,\frac{n}{k})G(k)
+F(n)=\sum_{k|n}\mu(k,n)G(k)=\sum_{k|n}\mu(1,\frac{n}{k})G(k)
 \]</span></p>
 <h1 id="递推关系与生成函数">递推关系与生成函数</h1>
 <h2 id="斐波拉契数列">斐波拉契数列</h2>
@@ -832,6 +832,26 @@ alt="image-20240907105802249" />
 </blockquote>
 <h2 id="day1">day1</h2>
 <h3 id="math">math</h3>
+<h4 id="problem1">problem1</h4>
+<p>3.Let ( n ) be an odd integer greater than 1. Prove that the
+sequence<br />
+<span class="math display">\[
+\binom{n}{1}, \binom{n}{2}, \ldots, \binom{n}{\frac{n-1}{2}}  
+\]</span></p>
+<p>contains an odd number of odd numbers.</p>
+<p><strong>solution:</strong> <span class="math display">\[
+\frac{1}{2}\left(\sum_{i=1}^{n-1}\binom{n}{i}
+\right)=\frac{1}{2}(2^{n}-2)=2^{n-1}-1
+\]</span> 是一个奇数。</p>
+<h4 id="problem2">problem2</h4>
+<p>4.How many positive integers not exceeding 2001 are multiples of 3 or
+4 but not 5?</p>
+<p><strong>solution:</strong></p>
+<p><span class="math inline">\(A_1,A_2,A_3\)</span>分别表示是<span
+class="math inline">\(3,4,5\)</span>的倍数。</p>
+<p>所求即 <span class="math display">\[
+(A_1\cup A_2)\cap(\overline{ A_3})=(A_1\cup A_2)-(A_1\cup A_2)\cap A_3
+\]</span> 为801。</p>
 <h3 id="acm">acm</h3>
 <h4 id="g.-natlan-exploring"><a
 target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/2037/G">G. Natlan
@@ -844,7 +864,23 @@ class="math inline">\(7\)</span>个不同的质因数。</p>
 class="math inline">\(\log\)</span>级别分解质因数。<span
 class="math inline">\(\sqrt{n}\)</span>也可以接受。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs cpp">vector&lt;<span class="hljs-type">int</span>&gt; p[N];<br>ll cnt[<span class="hljs-number">1000009</span>];<br>ll f[N];<br>vector&lt;<span class="hljs-type">int</span>&gt; pri;<br>bitset&lt;1000009&gt; not_pri;<br><span class="hljs-type">int</span> minp[<span class="hljs-number">1000009</span>];  <span class="hljs-comment">// 最小质因数</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Euler</span><span class="hljs-params">(<span class="hljs-type">int</span> n = <span class="hljs-number">1e6</span>)</span> </span>&#123;<br>  minp[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; ++i) &#123;<br>    <span class="hljs-keyword">if</span> (!not_pri[i]) pri.<span class="hljs-built_in">push_back</span>(i), minp[i] = i;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p : pri) &#123;<br>      <span class="hljs-keyword">if</span> (i * p &gt; n) <span class="hljs-keyword">break</span>;<br>      not_pri[i * p] = <span class="hljs-number">1</span>;<br>      minp[i * p] = p;<br>      <span class="hljs-keyword">if</span> (i % p == <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;<br>    &#125;<br>  &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-built_in">Euler</span>();<br>  <span class="hljs-type">int</span> n;<br>  cin &gt;&gt; n;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i) &#123;<br>    <span class="hljs-type">int</span> x;<br>    cin &gt;&gt; x;<br>    <span class="hljs-keyword">while</span> (x &gt; <span class="hljs-number">1</span>) &#123;<br>      <span class="hljs-type">int</span> y = minp[x];<br>      p[i].<span class="hljs-built_in">push_back</span>(y);<br>      <span class="hljs-keyword">while</span> (x % y == <span class="hljs-number">0</span>) x /= y;<br>    &#125;<br>  &#125;<br>  f[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i) &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt; (<span class="hljs-number">1</span> &lt;&lt; p[i].<span class="hljs-built_in">size</span>()); ++j) &#123;<br>      <span class="hljs-type">int</span> res = <span class="hljs-number">1</span>, c = <span class="hljs-number">0</span>;<br>      <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; p[i].<span class="hljs-built_in">size</span>(); ++k) &#123;<br>        <span class="hljs-keyword">if</span> (j &gt;&gt; k &amp; <span class="hljs-number">1</span>) &#123;<br>          res *= p[i][k];<br>          c++;<br>        &#125;<br>      &#125;<br>      f[i] += (c % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> ? <span class="hljs-number">-1</span> : <span class="hljs-number">1</span>) * cnt[res];<br>      f[i] = (f[i] % mod + mod) % mod;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt; (<span class="hljs-number">1</span> &lt;&lt; p[i].<span class="hljs-built_in">size</span>()); ++j) &#123;<br>      <span class="hljs-type">int</span> res = <span class="hljs-number">1</span>, c = <span class="hljs-number">0</span>;<br>      <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; p[i].<span class="hljs-built_in">size</span>(); ++k) &#123;<br>        <span class="hljs-keyword">if</span> (j &gt;&gt; k &amp; <span class="hljs-number">1</span>) res *= p[i][k];<br>      &#125;<br>      cnt[res] += f[i];<br>      cnt[res] %= mod;<br>    &#125;<br>  &#125;<br>  cout &lt;&lt; f[n];<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>利用莫比乌斯反演形式的容斥原理。</p>
+<p>莫比乌斯反演形式的容斥原理。 <span class="math display">\[
+F(x)=\sum_{y:y\le x} G(y) \mu(y,x)
+\]</span></p>
+<h4 id="g.-ultra-meow"><a
+target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1992/G">G.
+Ultra-Meow</a></h4>
+<p>考虑可能的<span
+class="math inline">\(MEX\)</span>值，计算可能有多少个。</p>
+<p>具体地：</p>
+<p>枚举x，为<span
+class="math inline">\(MEX\)</span>值，并且枚举x后有多少个元素y。</p>
+<p>显然有<span
+class="math inline">\(2b=x+y-1\)</span>，看能否解出满足限定条件的b，</p>
+<p>即<span class="math inline">\(b\le n,b+1\le x\)</span></p>
+<p>然后计算 <span class="math display">\[
+x\binom{\max(0,n-x)}{y}\binom{\min(x-1,n)}{b-y}
+\]</span> 即可。</p>
 
                 
               </div>
