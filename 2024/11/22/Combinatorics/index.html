@@ -21,12 +21,12 @@
   <meta name="author" content="0d-00">
   <meta name="keywords" content="">
   
-    <meta name="description" content="加训组合。​  公式排列组合排列线性排列 P(n,r)&#x3D;\frac{n!}{\left(n-r\right)!}圆排列$n$ 个数的$r$排列数是  \frac{P(n,r)}{r}项链数$n$ 个不同的珠子串成一串项链,则得到不同的项链数为  p&#x3D;\begin{cases} 1,\  \ \left( n">
+    <meta name="description" content="组合公式.​  公式排列组合排列线性排列 P(n,r)&#x3D;\frac{n!}{\left(n-r\right)!}圆排列$n$ 个数的$r$排列数是  \frac{P(n,r)}{r}项链数$n$ 个不同的珠子串成一串项链,则得到不同的项链数为  p&#x3D;\begin{cases} 1,\  \ \left( n">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Combinatorics(math and acm)">
 <meta property="og:url" content="https://0d-00.github.io/2024/11/22/Combinatorics/index.html">
 <meta property="og:site_name" content="0d-00&#39;s Blog">
-<meta property="og:description" content="加训组合。​  公式排列组合排列线性排列 P(n,r)&#x3D;\frac{n!}{\left(n-r\right)!}圆排列$n$ 个数的$r$排列数是  \frac{P(n,r)}{r}项链数$n$ 个不同的珠子串成一串项链,则得到不同的项链数为  p&#x3D;\begin{cases} 1,\  \ \left( n">
+<meta property="og:description" content="组合公式.​  公式排列组合排列线性排列 P(n,r)&#x3D;\frac{n!}{\left(n-r\right)!}圆排列$n$ 个数的$r$排列数是  \frac{P(n,r)}{r}项链数$n$ 个不同的珠子串成一串项链,则得到不同的项链数为  p&#x3D;\begin{cases} 1,\  \ \left( n">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://0d-00.github.io/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-15%20112253%20.png">
 <meta property="og:image" content="https://0d-00.github.io/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-16%20112617.png">
@@ -46,7 +46,7 @@
 <meta property="og:image" content="https://0d-00.github.io/images/image-20240907105441524.png">
 <meta property="og:image" content="https://0d-00.github.io/images/image-20240907105802249.png">
 <meta property="article:published_time" content="2024-11-22T15:10:29.000Z">
-<meta property="article:modified_time" content="2024-11-24T05:50:38.501Z">
+<meta property="article:modified_time" content="2024-11-27T13:40:55.544Z">
 <meta property="article:author" content="0d-00">
 <meta property="article:tag" content="Combinatorics">
 <meta name="twitter:card" content="summary_large_image">
@@ -301,7 +301,7 @@
               <div class="markdown-body">
                 
                 <blockquote>
-<p>加训组合。​</p>
+<p>组合公式.​</p>
 </blockquote>
 <h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><h2 id="排列组合"><a href="#排列组合" class="headerlink" title="排列组合"></a>排列组合</h2><h3 id="排列"><a href="#排列" class="headerlink" title="排列"></a>排列</h3><h4 id="线性排列"><a href="#线性排列" class="headerlink" title="线性排列"></a>线性排列</h4><script type="math/tex; mode=display">
 P(n,r)=\frac{n!}{\left(n-r\right)!}</script><h4 id="圆排列"><a href="#圆排列" class="headerlink" title="圆排列"></a>圆排列</h4><p>$n$ 个数的$r$排列数是</p>
@@ -317,7 +317,7 @@ p=\begin{cases}
 <script type="math/tex; mode=display">n!\cdot\frac{n!}{\prod_{i=1}^{k}\left(n_i!\right)}</script><h3 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h3><script type="math/tex; mode=display">\binom{n}{r}=\frac{P(n,r)}{r!}</script><h4 id="多重集的组合"><a href="#多重集的组合" class="headerlink" title="多重集的组合"></a>多重集的组合</h4><p>设$S$是有$k$ 种元素的集合,每种元素无限个$(\geq r)$,则其$r$ 组合的个数为</p>
 <script type="math/tex; mode=display">\binom{r+k-1}{r}</script><p><strong>证明:</strong><br>设第$i$种元素有$x_i$ 个,显然有$x_1+x_2+\dots+x_k=r(x_i\geq 0)$<br>该题就转化求解的个数.<br>设$T=\{r\cdot1,(k-1)\cdot| \} $,$|$分割为$k$ 个区域,第$i$ 个区域的$1$ 的个数对应$x_i$,故多重集合$T$ 的排列数就是该题答案,为<script type="math/tex">\frac{(r+k-1)!}{r!(k-1)!}=\binom{r+k-1}{r}</script></p>
 <h4 id="组合恒等式"><a href="#组合恒等式" class="headerlink" title="组合恒等式"></a>组合恒等式</h4><p>一般采用<strong>双计数</strong>方法证明.即<strong>算两次</strong>的技巧</p>
-<h4 id="1-Pascal公式"><a href="#1-Pascal公式" class="headerlink" title="1(Pascal公式)"></a>1(Pascal公式)</h4><script type="math/tex; mode=display">\binom{n}{k}=\binom{n-1}{k}+\binom{n-1}{k-1}</script><h4 id="2"><a href="#2" class="headerlink" title="2"></a>2</h4><script type="math/tex; mode=display">\sum_{i=0}^{n} \binom{n}{i}=2^n</script><h4 id="3"><a href="#3" class="headerlink" title="3"></a>3</h4><script type="math/tex; mode=display">m\cdot \binom{n}{m}=n\cdot \binom{n-1}{m-1}</script><h4 id="4"><a href="#4" class="headerlink" title="4"></a>4</h4><script type="math/tex; mode=display">\sum_{i=1}^{n} k\cdot\binom{n}{k}=n\cdot \sum_{i=1}^{n}\binom{n-1}{k-1}=n\cdot2^{n-1}</script><h4 id="3-朱世杰恒等式"><a href="#3-朱世杰恒等式" class="headerlink" title="3(朱世杰恒等式)"></a>3(朱世杰恒等式)</h4><script type="math/tex; mode=display">
+<h4 id="1-Pascal公式"><a href="#1-Pascal公式" class="headerlink" title="1(Pascal公式)"></a>1(Pascal公式)</h4><script type="math/tex; mode=display">\binom{n}{k}=\binom{n-1}{k}+\binom{n-1}{k-1}</script><h4 id="2"><a href="#2" class="headerlink" title="2"></a>2</h4><script type="math/tex; mode=display">\sum_{i=0}^{n} \binom{n}{i}=2^n</script><h4 id="3"><a href="#3" class="headerlink" title="3"></a>3</h4><script type="math/tex; mode=display">m\cdot \binom{n}{m}=n\cdot \binom{n-1}{m-1}</script><h4 id="4"><a href="#4" class="headerlink" title="4"></a>4</h4><script type="math/tex; mode=display">\sum_{k=1}^{n} k\cdot\binom{n}{k}=n\cdot \sum_{k=1}^{n}\binom{n-1}{k-1}=n\cdot2^{n-1}</script><h4 id="3-朱世杰恒等式"><a href="#3-朱世杰恒等式" class="headerlink" title="3(朱世杰恒等式)"></a>3(朱世杰恒等式)</h4><script type="math/tex; mode=display">
 \binom{m+n+1}{n+1}=\sum_{i=0}^{m} \binom{n+i}{n}</script><p><strong>证明:</strong><br>注意到$(x+1)^{m+n+1}$的$x^{n+1}$ 的系数为$\binom{m+n+1}{n+1}$,而我们可以将其看成$m+n+1$ 个$(x+1)$相乘,取了$n+1$ 次$x$,设$c_i$ 为第$i$项为第一次取$x$ 的种类数,那么$c_i=\binom{m+n+1-i}{n} $ 其中$1 \leq i\leq m+2 $ 又有</p>
 <script type="math/tex; mode=display">
 \sum_{i=1}^{m+1} \binom{m+n+1-i}{n}=\sum_{i=1}^{m+1} \binom{n+i-1}{n}= \sum_{i=0}^{m} \binom{n+i}{n}</script><p>得证.</p>
@@ -501,37 +501,7 @@ x^l+x^{l+1}+\cdots + x^{r}</script><p>若其有系数$k$，为</p>
 <p>有重根的情况，有定理：<br><img src="/images/image-20240907105441524.png" srcset="/img/loading.gif" lazyload alt="image-20240907105441524"></p>
 <h3 id="非齐次递推关系"><a href="#非齐次递推关系" class="headerlink" title="非齐次递推关系"></a>非齐次递推关系</h3><p>求特解</p>
 <p><img src="/images/image-20240907105802249.png" srcset="/img/loading.gif" lazyload alt="image-20240907105802249"></p>
-<h1 id="stage1"><a href="#stage1" class="headerlink" title="stage1"></a>stage1</h1><blockquote>
-<p>cf：1600~2100</p>
-<p>date: 24.11.23</p>
-</blockquote>
-<h2 id="day1"><a href="#day1" class="headerlink" title="day1"></a>day1</h2><h3 id="math"><a href="#math" class="headerlink" title="math"></a>math</h3><h4 id="problem1"><a href="#problem1" class="headerlink" title="problem1"></a>problem1</h4><p>3.Let ( n ) be an odd integer greater than 1. Prove that the sequence   </p>
-<script type="math/tex; mode=display">
-\binom{n}{1}, \binom{n}{2}, \ldots, \binom{n}{\frac{n-1}{2}}</script><p> contains an odd number of odd numbers.</p>
-<p><strong>solution:</strong></p>
-<script type="math/tex; mode=display">
-\frac{1}{2}\left(\sum_{i=1}^{n-1}\binom{n}{i} \right)=\frac{1}{2}(2^{n}-2)=2^{n-1}-1</script><p>是一个奇数。</p>
-<h4 id="problem2"><a href="#problem2" class="headerlink" title="problem2"></a>problem2</h4><p>4.How many positive integers not exceeding 2001 are multiples of 3 or 4 but not 5?</p>
-<p><strong>solution:</strong></p>
-<p>$A_1,A_2,A_3$分别表示是$3,4,5$的倍数。</p>
-<p>所求即</p>
-<script type="math/tex; mode=display">
-(A_1\cup A_2)\cap(\overline{ A_3})=(A_1\cup A_2)-(A_1\cup A_2)\cap A_3</script><p>为801。</p>
-<h3 id="acm"><a href="#acm" class="headerlink" title="acm"></a>acm</h3><h4 id="G-Natlan-Exploring"><a href="#G-Natlan-Exploring" class="headerlink" title="G. Natlan Exploring"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/2037/G">G. Natlan Exploring</a></h4><p>对于$x$，如何求值。如果其含质因数$A_1,A_2,\dots$，可以用容斥原理求出来。因为最多含$7$个不同的质因数。</p>
-<p>我们可以先用筛法求出最小的质因数，可以$\log$级别分解质因数。$\sqrt{n}$也可以接受。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs cpp">vector&lt;<span class="hljs-type">int</span>&gt; p[N];<br>ll cnt[<span class="hljs-number">1000009</span>];<br>ll f[N];<br>vector&lt;<span class="hljs-type">int</span>&gt; pri;<br>bitset&lt;1000009&gt; not_pri;<br><span class="hljs-type">int</span> minp[<span class="hljs-number">1000009</span>];  <span class="hljs-comment">// 最小质因数</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Euler</span><span class="hljs-params">(<span class="hljs-type">int</span> n = <span class="hljs-number">1e6</span>)</span> </span>&#123;<br>  minp[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; ++i) &#123;<br>    <span class="hljs-keyword">if</span> (!not_pri[i]) pri.<span class="hljs-built_in">push_back</span>(i), minp[i] = i;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p : pri) &#123;<br>      <span class="hljs-keyword">if</span> (i * p &gt; n) <span class="hljs-keyword">break</span>;<br>      not_pri[i * p] = <span class="hljs-number">1</span>;<br>      minp[i * p] = p;<br>      <span class="hljs-keyword">if</span> (i % p == <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;<br>    &#125;<br>  &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-built_in">Euler</span>();<br>  <span class="hljs-type">int</span> n;<br>  cin &gt;&gt; n;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i) &#123;<br>    <span class="hljs-type">int</span> x;<br>    cin &gt;&gt; x;<br>    <span class="hljs-keyword">while</span> (x &gt; <span class="hljs-number">1</span>) &#123;<br>      <span class="hljs-type">int</span> y = minp[x];<br>      p[i].<span class="hljs-built_in">push_back</span>(y);<br>      <span class="hljs-keyword">while</span> (x % y == <span class="hljs-number">0</span>) x /= y;<br>    &#125;<br>  &#125;<br>  f[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; ++i) &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt; (<span class="hljs-number">1</span> &lt;&lt; p[i].<span class="hljs-built_in">size</span>()); ++j) &#123;<br>      <span class="hljs-type">int</span> res = <span class="hljs-number">1</span>, c = <span class="hljs-number">0</span>;<br>      <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; p[i].<span class="hljs-built_in">size</span>(); ++k) &#123;<br>        <span class="hljs-keyword">if</span> (j &gt;&gt; k &amp; <span class="hljs-number">1</span>) &#123;<br>          res *= p[i][k];<br>          c++;<br>        &#125;<br>      &#125;<br>      f[i] += (c % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> ? <span class="hljs-number">-1</span> : <span class="hljs-number">1</span>) * cnt[res];<br>      f[i] = (f[i] % mod + mod) % mod;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt; (<span class="hljs-number">1</span> &lt;&lt; p[i].<span class="hljs-built_in">size</span>()); ++j) &#123;<br>      <span class="hljs-type">int</span> res = <span class="hljs-number">1</span>, c = <span class="hljs-number">0</span>;<br>      <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; p[i].<span class="hljs-built_in">size</span>(); ++k) &#123;<br>        <span class="hljs-keyword">if</span> (j &gt;&gt; k &amp; <span class="hljs-number">1</span>) res *= p[i][k];<br>      &#125;<br>      cnt[res] += f[i];<br>      cnt[res] %= mod;<br>    &#125;<br>  &#125;<br>  cout &lt;&lt; f[n];<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>莫比乌斯反演形式的容斥原理。</p>
-<script type="math/tex; mode=display">
-F(x)=\sum_{y:y\le x} G(y) \mu(y,x)</script><h4 id="G-Ultra-Meow"><a href="#G-Ultra-Meow" class="headerlink" title="G. Ultra-Meow"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1992/G">G. Ultra-Meow</a></h4><p>考虑可能的$MEX$值，计算可能有多少个。</p>
-<p>具体地：</p>
-<p>枚举x，为$MEX$值，并且枚举x后有多少个元素y。</p>
-<p>显然有$2b=x+y-1$，看能否解出满足限定条件的b，</p>
-<p>即$b\le n,b+1\le x$</p>
-<p>然后计算</p>
-<script type="math/tex; mode=display">
-x\binom{\max(0,n-x)}{y}\binom{\min(x-1,n)}{b-y}</script><p>即可。</p>
-<h2 id="day2"><a href="#day2" class="headerlink" title="day2"></a>day2</h2><h3 id="math-1"><a href="#math-1" class="headerlink" title="math"></a>math</h3><h4 id="problem1-1"><a href="#problem1-1" class="headerlink" title="problem1"></a>problem1</h4><p>Twenty five boys and twenty five girls sit around a table. Prove that it is always possible to find a person both of whose neighbors are girls.</p>
-<h4 id="problem2-1"><a href="#problem2-1" class="headerlink" title="problem2"></a>problem2</h4><h3 id="acm-1"><a href="#acm-1" class="headerlink" title="acm"></a>acm</h3>
+
                 
               </div>
             
@@ -599,6 +569,12 @@ x\binom{\max(0,n-x)}{y}\binom{\min(x-1,n)}{b-y}</script><p>即可。</p>
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/11/27/math-problems/" title="math problems">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">math problems</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
